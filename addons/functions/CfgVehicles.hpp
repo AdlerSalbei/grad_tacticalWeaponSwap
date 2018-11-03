@@ -1,5 +1,4 @@
-class CfgVehicles
-{
+class CfgVehicles {
 	class ReammoBox;
 	class GRAD_tacticalWeaponSwap_WeaponHolder: ReammoBox
 	{
@@ -9,7 +8,9 @@ class CfgVehicles
 		model = QPATHTOF(data\model.p3d);
 		accuracy = 0.2;
 		mapSize = 1.39;
+
 		class TransportMagazines {};
+		
 		forceSupply = 0;
 		memoryPointSupply = "";
 		supplyRadius = 0;
