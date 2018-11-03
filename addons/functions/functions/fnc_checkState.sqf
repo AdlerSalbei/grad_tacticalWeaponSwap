@@ -17,7 +17,7 @@ if (_currentWeapon == _primaryWeapon) then {
    if (_stance == "kneel") then {
       _player playMoveNow "AmovPknlMstpSrasWrflDnon_AmovPknlMstpSlowWrflDnon";
       [{
-         _this params [_player];
+         _this params ["_player"];
          [_player, _secondaryWeapon] call FUNC(changeAktivWeapon);
          [_player] call FUNC(handleRifle);
          _player playMoveNow "AmovPknlMstpSlowWpstDnon_AmovPknlMstpSrasWpstDnon";
@@ -25,7 +25,7 @@ if (_currentWeapon == _primaryWeapon) then {
    }else{
       _player playMoveNow "AmovPercMstpSrasWrflDnon_AmovPercMstpSlowWrflDnon";
       [{
-         _this params [_player];
+         _this params ["_player"];
          [_player, _secondaryWeapon] call FUNC(changeAktivWeapon);
          [_player] call FUNC(handleRifle);
          _player playMoveNow "AmovPercMstpSlowWpstDnon_AmovPercMstpSrasWpstDnon";
@@ -35,7 +35,7 @@ if (_currentWeapon == _primaryWeapon) then {
    if (_stance == "kneel") then {
       _player playMoveNow "AmovPknlMstpSrasWpstDnon_AmovPknlMstpSlowWpstDnon";
       [{
-         _this params [_player];
+         _this params ["_player"];
          [_player, _primaryWeapon] call FUNC(changeAktivWeapon);
          [_player] call FUNC(handlePistol);
          _player playMoveNow "AmovPknlMstpSlowWrflDnon_AmovPknlMstpSrasWrflDnon";
@@ -44,7 +44,7 @@ if (_currentWeapon == _primaryWeapon) then {
       if (_speed == "normal" || _speed == "fast") then {
          _player playMoveNow "AmovPercMwlkSrasWrflDf_AmovPercMstpSrasWrflDnon_gthStart";
          [{
-            _this params [_player];
+            _this params ["_player"];
             [_player, _primaryWeapon] call FUNC(changeAktivWeapon);
             [_player] call FUNC(handlePistol);
             _player playMoveNow "AmovPercMwlkSrasWpstDf_AmovPercMstpSrasWpstDnon_gthEnd";
@@ -52,7 +52,7 @@ if (_currentWeapon == _primaryWeapon) then {
       }else{
          _player playMoveNow "AmovPercMstpSrasWrflDnon_AmovPercMstpSlowWrflDnon";
          [{
-            _this params [_player];
+            _this params ["_player"];
             [_player, _primaryWeapon] call FUNC(changeAktivWeapon);
             [_player] call FUNC(handlePistol);
             _player playMoveNow "AmovPercMstpSlowWpstDnon_AmovPercMstpSrasWpstDnon";
