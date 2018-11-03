@@ -27,9 +27,11 @@ if !(missionNamespace getVariable [QGVAR(HDCEHadded),false]) then {
     publicVariable QGVAR(HDCEHadded);
 };
 
+/*
 //execute vehicle shit
 if !(vehicle _unit isEqualTo _unit) then {
 	[_unit, "", vehicle _unit] call FUNC(EHGetIn);
 } else {
 	[_unit, "", objNull] call FUNC(EHGetOut);
 };
+*/
