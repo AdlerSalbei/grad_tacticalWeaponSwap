@@ -27,9 +27,5 @@ if !(missionNamespace getVariable [QGVAR(addedHDCEH),false]) then {
     publicVariable QGVAR(addedHDCEH);
 };
 
-//execute vehicle shit
-if !(vehicle _player isEqualTo _player) then {
-	[_player, "", vehicle _player] call FUNC(getInEH);
-} else {
-	[_player, "", objNull] call FUNC(getOutEH);
-};
+//attach weaponHolder
+[_player,"",objNull] call FUNC(getOutEH);
