@@ -2,15 +2,20 @@
 
 params ["_player"];
 
+systemChat "starting handleRifle";
+
 //Get all attachments & amunition from the rifle
 private _loadout = getUnitLoadout _player;
 (_loadout select 0) param ["_weapon", "_muzzle", "_pointer", "_optics", "_magazine", "_underbarrelMagazine", "_underbarrel"];
 
+systemChat str([_player, _weapon]);
 //remove the rifle
-[_player, _weapon] call CBA_fnc_removeWeapon;
+private _result = [_player, _weapon] call CBA_fnc_removeWeapon;
+systemChat str (_result);
 
+systemChat "creating weaponHolder";
 //create weaponholder
-private _weaponHolder = createVehicle ["GRAD_tacticalWeaponSwap_WeaponHolder", (getPos _player), [], 0, "CAN_COLLIDE"];
+private _weaponHolder = "GRAD_tacticalWeaponSwap_WeaponHolder" createVehicle (getPos _player);
 _weaponHolder addWeaponCargoGlobal [_weapon, 1];
 
 //add EHs to unit
