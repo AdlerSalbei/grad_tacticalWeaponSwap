@@ -10,28 +10,26 @@ private _loadout = getUnitLoadout _player;
 [_player, _weapon] call CBA_fnc_removeWeapon;
 
 //create weaponholder
-private _weaponHolder = createVehicle ["GRAD_tacticalWeaponSwap_WeaponHolder", getPos _player, [], 0, "CAN_COLLIDE"];
-_weaponHolder addItemCargoGlobal [_weapon, 1];
+private _weaponHolder = createVehicle ["GRAD_tacticalWeaponSwap_WeaponHolder", (getPos _player), [], 0, "CAN_COLLIDE"];
+_weaponHolder addWeaponCargoGlobal [_weapon, 1];
 
 //add EHs to unit
-private _getInID = _unit addEventHandler ["GetInMan",FUNC(EHGetIn)];
-private _getOutID = _unit addEventHandler ["GetOutMan",FUNC(EHGetOut)];
-private _killedID = _unit addEventHandler ["Killed",FUNC(EHKilled)];
+private _getInID = _player addEventHandler ["GetInMan",FUNC(getInEH)];
+private _getOutID = _player addEventHandler ["GetOutMan",FUNC(getOutEH)];
+private _killedID = _player addEventHandler ["Killed",FUNC(killedEH)];
 
-_unit setVariable [QGVAR(variable),[_helmetClass, _weaponHolder, [_getInID,_getOutID,_killedID]], true];
+_player setVariable [QGVAR(variable),[_weapon, _weaponHolder, [_getInID,_getOutID,_killedID]], true];
 
 //add HandleDisconnect-EH on server if not done yet
-if !(missionNamespace getVariable [QGVAR(HDCEHadded),false]) then {
-    ["HandleDisconnect", FUNC(EHHandleDisconnect)] remoteExec ["addMissionEventHandler", 2];
-    GVAR(HDCEHadded) = true;
-    publicVariable QGVAR(HDCEHadded);
+if !(missionNamespace getVariable [QGVAR(addedHDCEH),false]) then {
+    ["HandleDisconnect", FUNC(disconnectEH)] remoteExec ["addMissionEventHandler", 2];
+    GVAR(addedHDCEH) = true;
+    publicVariable QGVAR(addedHDCEH);
 };
 
-/*
 //execute vehicle shit
-if !(vehicle _unit isEqualTo _unit) then {
-	[_unit, "", vehicle _unit] call FUNC(EHGetIn);
+if !(vehicle _player isEqualTo _player) then {
+	[_player, "", vehicle _player] call FUNC(getInEH);
 } else {
-	[_unit, "", objNull] call FUNC(EHGetOut);
+	[_player, "", objNull] call FUNC(getOutEH);
 };
-*/

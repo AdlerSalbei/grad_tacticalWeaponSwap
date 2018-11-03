@@ -10,42 +10,47 @@ private _secondaryWeapon = secondaryWeapon player;
 
 if (_currentWeapon != _primaryWeapon && _currentWeapon != _secondaryWeapon) exitWith {};
 
-{_player call CBA_fnc_getUnitAnim} params ["_stance", "_speed"];
+(_player call CBA_fnc_getUnitAnim) params ["_stance", "_speed"];
 if (_stance == "prone") exitWith {};
 
 if (_currentWeapon == _primaryWeapon) then {
    if (_stance == "kneel") then {
-      playMoveNow "AmovPknlMstpSrasWrflDnon_AmovPknlMstpSlowWrflDnon";
+      _player playMoveNow "AmovPknlMstpSrasWrflDnon_AmovPknlMstpSlowWrflDnon";
       [{
-         playMoveNow "AmovPknlMstpSlowWpstDnon_AmovPknlMstpSrasWpstDnon";
-         [_player, _primaryWeapon, _secondaryWeapon] call FUNC(handleRifle);
+         _player playMoveNow "AmovPknlMstpSlowWpstDnon_AmovPknlMstpSrasWpstDnon";
+         [_player, _secondaryWeapon] call FUNC(changeAktivWeapon);
+         [_player] call FUNC(handleRifle);
       },[],1.5] call CBA_fnc_waitAndExecute;
    }else{
-      playMoveNow "AmovPercMstpSrasWrflDnon_AmovPercMstpSlowWrflDnon";
+      _player playMoveNow "AmovPercMstpSrasWrflDnon_AmovPercMstpSlowWrflDnon";
       [{
-         playMoveNow "AmovPercMstpSlowWpstDnon_AmovPercMstpSrasWpstDnon";
-         [_player, _primaryWeapon, _secondaryWeapon] call FUNC(handleRifle);
+         _player playMoveNow "AmovPercMstpSlowWpstDnon_AmovPercMstpSrasWpstDnon";
+         [_player, _secondaryWeapon] call FUNC(changeAktivWeapon);
+         [_player] call FUNC(handleRifle);
       },[],0.1] call CBA_fnc_waitAndExecute;
    };
 }else{
    if (_stance == "kneel") then {
-      playMoveNow "AmovPknlMstpSrasWpstDnon_AmovPknlMstpSlowWpstDnon";
+      _player playMoveNow "AmovPknlMstpSrasWpstDnon_AmovPknlMstpSlowWpstDnon";
       [{
-         playMoveNow "AmovPknlMstpSlowWrflDnon_AmovPknlMstpSrasWrflDnon";
+         _player playMoveNow "AmovPknlMstpSlowWrflDnon_AmovPknlMstpSrasWrflDnon";
+         [_player, _primaryWeapon] call FUNC(changeAktivWeapon);
          [_player] call FUNC(handlePistol);
       },[],0.1] call CBA_fnc_waitAndExecute;
    }else{
       if (_speed == "normal" || _speed == "fast") then {
-         playMoveNow "AmovPercMwlkSrasWrflDf_AmovPercMstpSrasWrflDnon_gthStart";
+         _player playMoveNow "AmovPercMwlkSrasWrflDf_AmovPercMstpSrasWrflDnon_gthStart";
          [{
-            playMoveNow "AmovPercMwlkSrasWpstDf_AmovPercMstpSrasWpstDnon_gthEnd";
-            [_player, _primaryWeapon, _secondaryWeapon] call FUNC(handlePistol);
+            _player playMoveNow "AmovPercMwlkSrasWpstDf_AmovPercMstpSrasWpstDnon_gthEnd";
+            [_player, _primaryWeapon] call FUNC(changeAktivWeapon);
+            [_player] call FUNC(handlePistol);
          },[],0.5] call CBA_fnc_waitAndExecute;
       }else{
-         playMoveNow "AmovPercMstpSrasWrflDnon_AmovPercMstpSlowWrflDnon";
+         _player playMoveNow "AmovPercMstpSrasWrflDnon_AmovPercMstpSlowWrflDnon";
          [{
-            playMoveNow "AmovPercMstpSlowWpstDnon_AmovPercMstpSrasWpstDnon";
-            [_player, _primaryWeapon, _secondaryWeapon] call FUNC(handlePistol);
+            _player playMoveNow "AmovPercMstpSlowWpstDnon_AmovPercMstpSrasWpstDnon";
+            [_player, _primaryWeapon] call FUNC(changeAktivWeapon);
+            [_player] call FUNC(handlePistol);
          },[],0.5] call CBA_fnc_waitAndExecute;
       };
    };

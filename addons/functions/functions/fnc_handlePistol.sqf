@@ -2,8 +2,8 @@
 
 params ["_player"];
 
-private _class = [_player] call GRAD_slingHelmet_fnc_getSlungHelmet;
-private _weaponHolder = [_player] call GRAD_slingHelmet_fnc_weaponHolder;
+private _class = [_player] call FUNC(getWeapon);
+private _weaponHolder = [_player] call FUNC(weaponHolder);
 
 if (_class isEqualTo "") exitWith {};
 

@@ -6,8 +6,8 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = { "ace_tacticalWeaponSwap" };
-        authors[] = { "Salbei", "chris579" };
+        requiredAddons[] = { "ace_main" };
+        authors[] = { "Salbei"};
         VERSION_CONFIG;
     };
 };

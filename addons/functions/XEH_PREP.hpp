@@ -1,3 +1,12 @@
+PREP(changeAktivWeapon);
 PREP(checkState);
+PREP(disconnectEH);
+PREP(getInEH);
+PREP(getOutEH);
+PREP(getWeapon);
 PREP(handlePistol);
 PREP(handleRifle);
+PREP(hiddenCheck);
+PREP(killedEH);
+PREP(removeWeapon);
+PREP(weaponHolder);
