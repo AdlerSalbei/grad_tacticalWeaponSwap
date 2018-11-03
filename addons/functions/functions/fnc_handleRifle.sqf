@@ -6,7 +6,7 @@ systemChat "starting handleRifle";
 
 //Get all attachments & amunition from the rifle
 private _loadout = getUnitLoadout _player;
-(_loadout select 0) param ["_weapon", "_muzzle", "_pointer", "_optics", "_magazine", "_underbarrelMagazine", "_underbarrel"];
+(_loadout select 0) params ["_weapon", "_muzzle", "_pointer", "_optics", "_magazine", "_underbarrelMagazine", "_underbarrel"];
 
 systemChat str([_player, _weapon]);
 //remove the rifle

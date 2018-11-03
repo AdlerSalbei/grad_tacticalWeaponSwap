@@ -22,6 +22,6 @@ params ["_obj", "_hide"];
 private _isHidden = isObjectHidden _obj;
 
 switch (true) do {
-   case (_hide && !(_isHidden)) then {hideObject _obj;};
-   case (!(_hide) && _isHidden) then {_obj hideObject false;};
+   case (_hide && !(_isHidden)) : {hideObject _obj;};
+   case (!(_hide) && _isHidden) : {_obj hideObject false;};
 };

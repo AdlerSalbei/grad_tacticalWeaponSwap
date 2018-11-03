@@ -16,7 +16,7 @@
  *
  * Public: No
  */
-params ["_player","_position","_veh"];
+params ["_player","","_veh"];
 
 if (isNil "_player" or isNil "_veh") exitWith {["No proper argument(s) given."] call BIS_fnc_error};
 
