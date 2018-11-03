@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="GRAD">
+    <Package name="tacticalWeaponSwap">
+  		<Key ID="STR_GRAD_tacicalWeaponSwap_Key">
+              <Original>Key to tacticaly swap weapons</Original>
+              <English>Key to tacticaly swap weapons</English>
+              <German>Taste zum takischen Waffe wechseln</German>
+      </Key>
+    </Package>
+</Project>
