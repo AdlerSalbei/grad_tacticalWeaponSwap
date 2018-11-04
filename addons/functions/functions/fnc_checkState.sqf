@@ -22,8 +22,8 @@ if (_currentWeapon == _primaryWeapon) then {
          _this params ["_player"];
          [_player] call FUNC(handleRifle);
          [_player, _handgunWeapon] call FUNC(changeAktivWeapon);
-         _player playMoveNow "AmovPercMstpSlowWpstDnon_AmovPercMstpSrasWpstDnon";
-      },[_player],1.5] call CBA_fnc_waitAndExecute;
+         //_player playMoveNow "AmovPknlMstpSnonWnonDnon_AmovPknlMstpSrasWpstDnon_end";
+      },[_player],1] call CBA_fnc_waitAndExecute;
    }else{
       _player playMoveNow "AmovPercMstpSrasWrflDnon_AmovPercMstpSlowWrflDnon";
       [{
@@ -43,7 +43,6 @@ if (_currentWeapon == _primaryWeapon) then {
          _player playMoveNow "AmovPknlMstpSlowWrflDnon_AmovPknlMstpSrasWrflDnon";
       },[_player],0.1] call CBA_fnc_waitAndExecute;
    }else{
-      /*
       if (_speed == "normal" || _speed == "fast") then {
          _player playMoveNow "AmovPercMwlkSrasWrflDf_AmovPercMstpSrasWrflDnon_gthStart";
          [{
@@ -53,7 +52,6 @@ if (_currentWeapon == _primaryWeapon) then {
             _player playMoveNow "AmovPercMwlkSrasWpstDf_AmovPercMstpSrasWpstDnon_gthEnd";
          },[_player],0.5] call CBA_fnc_waitAndExecute;
       }else{
-         */
          _player playMoveNow "AmovPercMstpSrasWrflDnon_AmovPercMstpSlowWrflDnon";
          [_player] call FUNC(handlePistol);
          [{
@@ -61,6 +59,6 @@ if (_currentWeapon == _primaryWeapon) then {
             [_player, _primaryWeapon] call FUNC(changeAktivWeapon);
             [{_this playMoveNow "AmovPercMstpSlowWrflDnon_AmovPercMstpSrasWrflDnon";},_player,1] call CBA_fnc_waitAndExecute;
          },[_player],1] call CBA_fnc_waitAndExecute;
-      //};
+      };
    };
 };

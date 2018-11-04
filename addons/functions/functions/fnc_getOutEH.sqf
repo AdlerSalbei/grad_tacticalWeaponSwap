@@ -23,7 +23,7 @@ if (isNil "_player" or isNil "_veh") exitWith {["No proper argument(s) given."] 
 private _weaponHolder = [_player] call FUNC(weaponHolder);
 
 //attach and unhide the weaponholder
-[_weaponHolder, [_player,[0.1,0.1,0],"Spine3"]] remoteExec ["attachTo", 0];
-[_weaponHolder, [[0,0,1],[0,0,0]]] remoteExec ["setVectorDirAndUp", 0];
+[_weaponHolder, [_player,[0.1,0.25,-0.065],"pelvis"]] remoteExec ["attachTo", 0];
+[_weaponHolder, [[-5,3,0.5],[-2,5,0]]] remoteExec ["setVectorDirAndUp", 0];
 _weaponHolder hideObjectGlobal false;
 [_weaponHolder, false] remoteExec [QFUNC(hiddenCheck), 0];
