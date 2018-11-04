@@ -22,4 +22,4 @@ private _var = _unit getVariable [QGVAR(variable),nil];
 if (isNil "_var") exitWith {""};
 
 //return classname
-(_var select 0)
+((_var select 0)select 0)
